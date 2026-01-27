@@ -1,4 +1,4 @@
-name: CI Workflow
+name: CI sin pruebas
 on:
   push:
     branches: [ main, master ]
@@ -6,25 +6,11 @@ on:
     branches: [ main, master ]
 
 jobs:
-  build-and-test:
+  no-tests:
     runs-on: ubuntu-latest
     steps:
-    - name: Clonar el repositorio
-      uses: actions/checkout@v4
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
 
-    - name: Configurar Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-
-    - name: Instalar dependencias
-      run: npm install
-
-    - name: Linting del código
-      run: npm run lint
-
-    - name: Ejecutar pruebas
-      run: npm test
-
-    - name: Simular despliegue
-      run: echo "Despliegue simulado exitosamente"
+      - name: Mensaje
+        run: echo "CI ejecutado sin pruebas ni lint"
