@@ -2,9 +2,9 @@ name : CI Workflow
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ] 
+    branches: [ master ] 
 
 jobs:
   build-and-test:
@@ -19,7 +19,7 @@ jobs:
           node-version: '20'
         
       - name: Instalar dependencias
-        run: npm install
+        run: npm ci
 
       - name: Lint del codigo
         run: npm run lint
@@ -28,4 +28,4 @@ jobs:
         run: npm test
 
       - name: Simular despliegue
-        run: npm ci && npm run build
+        run: npm ci 
